@@ -1,5 +1,5 @@
-;; author: chinazhangjie
-;; e-mail: chinajiezhang@gmail.com
+;; author: jjxiao
+;; e-mail: jjxiao.cn@gmail.com
 
 ;; 指针颜色设置为白色
 (set-cursor-color "white")
@@ -43,7 +43,7 @@
 (setq x-select-enable-clipboard t) 
 
 ;; 在标题栏提示你目前在什么位置
-(setq frame-title-format "zhj@%b")  
+(setq frame-title-format "jjxiao@%b")  
 
 ;; 默认显示 80列就换行 
 (setq default-fill-column 80) 
@@ -98,3 +98,10 @@ nil 0 nil "_NET_WM_STATE" 32
 ;; 启动窗口大小
 (setq default-frame-alist
       '((height . 35) (width . 125) (menu-bar-lines . 20) (tool-bar-lines . 0)))
+
+;; k&r c
+;; c code indentation
+(setq c-default-style
+      '((c-mode . "k&r") (other . "gnu")))
+(setq c-basic-offset 8)
+(setq make-backup-files nil)
