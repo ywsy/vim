@@ -171,4 +171,5 @@ Bundle 'Pydiction'
 Bundle 'AutoComplPop'		
 Bundle 'python.vim'
 Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
+Bundle 'EasyMotion'
 filetype	on
