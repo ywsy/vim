@@ -115,7 +115,7 @@ set tags+=tags;
 nmap <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 imap <F12> <ESC>:w <CR><F12>
 if has("cscope")
-	set csprg=/usr/local/bin/cscope
+	set csprg=/usr/bin/cscope
 	set csto=0
 	set cst
 	set nocsverb
