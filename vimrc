@@ -106,8 +106,14 @@ Plug 'junegunn/vim-easy-align'
 Plug 'fatih/vim-go', { 'tag': '*' }
 Plug 'nsf/gocode', { 'rtp': 'vim' }
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'w0rp/ale'
 
 call plug#end()
+
+filetype plugin indent on
+
+set number
+set cindent
 
 " Add optional packages.
 "
@@ -136,6 +142,22 @@ let g:ycm_filetype_whitelist = {
 			\ }
 			
 
+if has("cscope")
+	set csprg=/usr/bin/cscope
+	set csto=1
+	set cst
+	set nocsverb
+	if filereadable("cscope.out")
+		cs add cscope.out
+	endif
+	set csverb
+endif
+:set cscopequickfix=s-,c-,d-,i-,t-,e-
+"nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <silent> <F5> :cs find s <C-R>=expand("<cword>")<CR><CR>
+
+
+
 " gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
 let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
 
@@ -155,3 +177,16 @@ let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 if !isdirectory(s:vim_tags)
    silent! call mkdir(s:vim_tags, 'p')
 endif
+
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = 'E'
+let g:ale_sign_warning = 'w'
+let g:ale_statusline_format = [ '  %d', '    %d', '    Ok']
+let g:ale_echo_msg_format = '[%linter%]  %code: %%s'
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_insert_leave = 1
+let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
+let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
+let g:ale_c_cppcheck_options = ''
+let g:ale_cpp_cppcheck_options = ''
+
